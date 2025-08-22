@@ -151,3 +151,8 @@
     margin-top: 1rem;
     font-style: italic;
   }
+  .logo img {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
