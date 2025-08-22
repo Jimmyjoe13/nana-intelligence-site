@@ -11,7 +11,7 @@ const API_KEY = process.env.MISTRAL_API_KEY; // ✅ Clé fournie
 // 📝 Prompt maître - Article de blog (optimisé conversion + SEO)
 const BLOG_PROMPT = `
 Tu es un expert en growth hacking et automatisation IA.
-Rédige un article de blog de 600-800 mots, optimisé SEO, pour le mot-clé : "automatisation prospection startup".
+Rédige un article de blog de 600-800 mots, optimisé SEO, pour le mot-clé : "n8n workflow prospection".
 Structure :
 - Titre accrocheur
 - Introduction avec douleur concrète
@@ -28,7 +28,7 @@ Ne pas utiliser de "notre mission", "nous sommes", "dans cet article".
 const payload = {
   model: 'mistral-large-latest',
   messages: [{ role: 'user', content: BLOG_PROMPT }],
-  max_tokens: 2000,
+  max_tokens: 1000,
   temperature: 0.7,
   top_p: 0.9,
   stop: ["Structure :", "Prompt :", "Utilisateur :"],
@@ -59,7 +59,7 @@ async function generateContent() {
     }
 
     // 📥 Sauvegarde dans /generated
-    const outputPath = path.join(__dirname, '..', 'generated', 'blog-1-automatisation-prospection-startup.txt');
+    const outputPath = path.join(__dirname, '..', 'generated', 'blog-2-n8n workflow prospection.txt');
     fs.writeFileSync(outputPath, cleaned, 'utf-8');
 
     console.log('✅ Succès : contenu généré et sauvegardé dans /generated/hero-section.txt');
