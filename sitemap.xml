@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator https://sitemap-generator.org/ -->
+  <url>
+   <loc>https://nana-intelligence.netlify.app/</loc>
+   <lastmod>2025-08-22T16:25:03.486Z</lastmod>
+   <priority>1.00</priority>
+ </url>
+  <url>
+   <loc>https://nana-intelligence.netlify.app/blog/</loc>
+   <lastmod>2025-08-22T16:25:03.486Z</lastmod>
+   <priority>0.80</priority>
+ </url>
+  <url>
+   <loc>https://nana-intelligence.netlify.app/blog/agent-ia-prospection</loc>
+   <lastmod>2025-08-22T16:25:03.486Z</lastmod>
+   <priority>0.64</priority>
+ </url>
+  <url>
+   <loc>https://nana-intelligence.netlify.app/blog/automatiser-prospection-n8n</loc>
+   <lastmod>2025-08-22T16:25:03.486Z</lastmod>
+   <priority>0.64</priority>
+ </url>
+  <url>
+   <loc>https://nana-intelligence.netlify.app/blog/workflow-ia-cold-email</loc>
+   <lastmod>2025-08-22T16:25:03.486Z</lastmod>
+   <priority>0.64</priority>
+ </url>
+</urlset>
