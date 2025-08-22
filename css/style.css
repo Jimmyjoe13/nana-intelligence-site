@@ -151,8 +151,17 @@
     margin-top: 1rem;
     font-style: italic;
   }
+
   .logo img {
     height: 40px;
     vertical-align: middle;
     margin-right: 10px;
+  }
+
+  .social-proof {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    margin: 1rem 0;
+    font-style: italic;
   }

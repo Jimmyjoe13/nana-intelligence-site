@@ -136,7 +136,7 @@
     
     <p>La solution ? <strong>Un agent IA qui prospecte, qualifie et convertit 24/7</strong>—sans salaire, sans pauses, sans erreurs.</p>
     
-    <p>Voici comment automatiser <strong>tout le funnel de prospection</strong> avec des outils open-source (n8n, Make, Mistral) et multiplier vos leads <strong>sans embaucher</strong>.</p>
+    <p>Voici comment automatiser <strong>tout le funnel de prospection</strong> avec des outils open-source (n8n, Make, Modèle IA) et multiplier vos leads <strong>sans embaucher</strong>.</p>
 
     <h2>Pourquoi la Prospection Manuelle Échoue (Et Vous Fait Perdre des Clients)</h2>
 
@@ -158,7 +158,7 @@
     <ul>
       <li><strong>Scraping intelligent</strong> → Trouve des leads ultra-ciblés (LinkedIn, sites web, bases publiques).</li>
       <li><strong>Enrichissement des données</strong> → Vérifie emails, postes, taille d’entreprise (via Hunter, Dropcontact, ou APIs gratuites).</li>
-      <li><strong>Personnalisation dynamique</strong> → Génère des messages uniques avec GPT (pas de "Cher {prénom}" générique).</li>
+      <li><strong>Personnalisation dynamique</strong> → Génère des messages uniques avec GPT ou un autre modèle IA (pas de "Cher {prénom}" générique).</li>
       <li><strong>Multi-canal automatisé</strong> → Emails + LinkedIn + SMS (sans blacklist).</li>
       <li><strong>Suivi intelligent</strong> → Relances adaptées, détection des réponses, qualification auto.</li>
       <li><strong>Intégration CRM</strong> → Les leads chauds atterrissent directement dans HubSpot ou Salesforce.</li>
@@ -167,10 +167,10 @@
     <div class="highlight">
       <strong>Outils clés (100% open-source ou low-cost) :</strong><br>
       n8n / Make → Orchestration des workflows (alternative à Zapier, sans limites).<br>
-      GPT-oss (modèles locaux) → Génération de texte sans dépendre d’OpenAI (moins cher, plus privé).<br>
+      Mistral-large-latest (modèles locaux) → Génération de texte sans dépendre d’OpenAI (moins cher, plus privé).<br>
       Apify / PhantomBuster → Scraping LinkedIn sans se faire ban.<br>
       Resend / Lemlist → Envoi d’emails à haute délivrabilité.<br>
-      <strong>Coût total : < 100€/mois</strong> pour une machine qui travaille 24/7.
+      <strong>Coût total : 100€/mois</strong> pour une machine qui travaille 24/7.
     </div>
 
     <h2>Workflows Clés à Automatiser (Étapes Pratiques)</h2>
@@ -181,12 +181,12 @@
     <ul>
       <li><strong>Déclencheur :</strong> Nouvelle recherche LinkedIn (ex: "CTO SaaS France").</li>
       <li><strong>Scraping :</strong> Apify extrait profils + emails (via Hunter.io ou Dropcontact).</li>
-      <li><strong>Filtrage :</strong> Exclut les entreprises < 10 employés (API Clearbit).</li>
+      <li><strong>Filtrage :</strong> Exclut les entreprises 10 employés (API Clearbit).</li>
       <li><strong>Stockage :</strong> Envoie dans Airtable ou Google Sheets avec score de pertinence.</li>
       <li><strong>Bonus :</strong> Ajoutez une vérification d’email en temps réel (NeverBounce).</li>
     </ul>
 
-    <h3>2. Génération d’Emails Personnalisés (GPT-oss)</h3>
+    <h3>2. Génération d’Emails Personnalisés (par un modèle IA)</h3>
     <p><strong>Objectif :</strong> 0% de templates génériques, 100% de pertinence.</p>
     <p><strong>Workflow :</strong></p>
     <ul>
