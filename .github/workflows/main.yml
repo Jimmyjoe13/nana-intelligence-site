@@ -28,7 +28,3 @@ jobs:
             echo "✅ Webhook envoyé pour $slug"
           done
 
-        # Si aucun fichier trouvé
-        if [ -z "$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^blog/.*\.html$')" ]; then
-          echo "Aucun article détecté."
-        fi
