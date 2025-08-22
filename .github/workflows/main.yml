@@ -1,0 +1,19 @@
+name: Publier sur LinkedIn
+on:
+  push:
+    paths:
+      - 'blog/*.html'
+
+jobs:
+  post-linkedin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract filename
+        id: extract
+        run: |
+          echo "::set-output name=slug::$(echo ${{ github.event.commits[0].added[0] }} | grep -o 'blog/\(.*\)\.html' | sed 's/blog\/\(.*\)\.html/\1/')"
+      - name: Trigger n8n webhook
+        run: |
+          curl -X POST https://bartojoe13.app.n8n.cloud/webhook/96bb8033-5aba-4b1e-8636-557287f3d042 \
+            -H "Content-Type: application/json" \
+            -d '{"slug": "${{ steps.extract.outputs.slug }}"}'
