@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>5 Workflows Make & n8n - Nana Intelligence</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+    }
+    .cover {
+      text-align: center;
+      padding: 5rem 2rem;
+      border-bottom: 4px solid #00d88d;
+      margin-bottom: 3rem;
+    }
+    .cover h1 {
+      font-size: 2.5rem;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+    .cover p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+    .author {
+      font-weight: 700;
+      color: #000;
+      margin: 1rem 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000;
+      margin-top: 1rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      color: #000;
+      border-left: 4px solid #00d88d;
+      padding-left: 12px;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    h3 {
+      font-size: 1.3rem;
+      color: #000;
+      margin: 1.8rem 0 0.8rem 0;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    .highlight {
+      background: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #333;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .cta {
+      display: block;
+      text-align: center;
+      font-weight: 700;
+      color: #00d88d;
+      margin: 1.5rem 0;
+      text-decoration: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+
+    .post-cta {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="cover">
+    <h1>5 Workflows Make & n8n Prêts à l’Emploi</h1>
+    <p>Pour automatiser 100% de votre prospection B2B</p>
+    <div class="author">Par Jimmy Gay – Growth Engineer @ Nana Intelligence</div>
+    <div class="logo">Nana Intelligence</div>
+    <p>www.nana-intelligence.netlify.app</p>
+  </div>
+
+  <h2>Introduction</h2>
+  <p>La prospection manuelle tue les startups. 80% du temps des commerciaux est perdu en tâches répétitives : recherche de contacts, copier-coller d’emails, relances manuelles, mise à jour de CRM.</p>
+  <p>Et le pire ? <strong>Les meilleurs leads sont ignorés</strong> parce que personne n’a le temps de les suivre.</p>
+  <p>Avec ces 5 workflows, vous automatiserez :</p>
+  <ul>
+    <li>L’identification de leads qualifiés</li>
+    <li>La personnalisation d’emails hyper-ciblés</li>
+    <li>Le suivi multi-canal (email + LinkedIn)</li>
+    <li>La qualification automatique des réponses</li>
+    <li>L’intégration directe dans votre CRM</li>
+  </ul>
+  <p><strong>Pas de théorie. Pas de jargon.</strong><br>
+  Juste des workflows réels, testés sur des startups, prêts à être importés et exécutés.</p>
+
+  <h2>Workflow 1 : Scraping LinkedIn → Enrichissement → Stockage (n8n)</h2>
+  <h3>Objectif</h3>
+  <p>Trouver 100 leads qualifiés par jour sans recherche manuelle.</p>
+  <h3>Outils utilisés</h3>
+  <ul>
+    <li>n8n (workflow)</li>
+    <li>Apify (scraping LinkedIn)</li>
+    <li>Hunter.io (vérification email)</li>
+    <li>Clearbit (enrichissement données)</li>
+    <li>Google Sheets (stockage)</li>
+  </ul>
+  <h3>Étapes du workflow</h3>
+  <ol>
+    <li><strong>Déclencheur</strong> : Nouvelle recherche LinkedIn (ex: "CTO SaaS France")</li>
+    <li><strong>Scraping</strong> : Apify extrait nom, poste, entreprise, LinkedIn</li>
+    <li><strong>Vérification email</strong> : Hunter.io confirme la validité</li>
+    <li><strong>Enrichissement</strong> : Clearbit ajoute taille entreprise, tech stack</li>
+    <li><strong>Filtrage</strong> : Exclut les entreprises < 10 employés</li>
+    <li><strong>Stockage</strong> : Envoie dans Google Sheets avec score de pertinence</li>
+  </ol>
+  <div class="highlight">
+    💡 <strong>Bonus</strong> : Ajoute NeverBounce pour vérifier 10 000 emails en 2 min.<br>
+    🔒 <strong>Sécurité</strong> : Limite à 100 requêtes/jour pour éviter les bans.
+  </div>
+
+  <h2>Workflow 2 : Génération d’Emails Hyper-Personnalisés (Make + IA)</h2>
+  <h3>Objectif</h3>
+  <p>Éviter les templates génériques. Chaque email est unique, pertinent, crédible.</p>
+  <h3>Outils utilisés</h3>
+  <ul>
+    <li>Make (orchestration)</li>
+    <li>Modèle IA (Mistral, Llama, ou autre)</li>
+    <li>Resend (envoi email)</li>
+  </ul>
+  <h3>Prompt IA (clé du succès)</h3>
+  <p>"Rédige un email court (3 phrases max) pour {prénom}, {poste} chez {entreprise}. Il utilise {tech_stack} et a posté sur {dernier_post}. Mentionne son post, pointe un problème courant, propose une solution rapide. Ton : direct, sans flatterie. Signature : Jimmy, Growth Engineer chez Nana Intelligence."</p>
+  <h3>Exemple de sortie</h3>
+  <p><em>"Salut Marc, j’ai vu ton post sur l’optimisation React. On a fixé un problème similaire pour un client SaaS (perf x3). Je t’envoie la solution ?"</em></p>
+  <p><strong>Résultat</strong> : Taux de réponse x2 vs template générique.</p>
+
+  <h2>Workflow 3 : Campagne de Cold Email Automatisée (Make)</h2>
+  <h3>Objectif</h3>
+  <p>Générer 50+ réponses/mois sans effort humain après le setup.</p>
+  <h3>Outils utilisés</h3>
+  <ul>
+    <li>Google Sheets (base de leads)</li>
+    <li>Make (workflow)</li>
+    <li>Resend (envoi)</li>
+    <li>Calendly (prise de RDV)</li>
+  </ul>
+  <h3>Calendrier de suivi</h3>
+  <table>
+    <tr>
+      <th>Jour</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>J1</td>
+      <td>Email personnalisé (via Resend)</td>
+    </tr>
+    <tr>
+      <td>J3</td>
+      <td>Relance LinkedIn (message court + like d’un post)</td>
+    </tr>
+    <tr>
+      <td>J7</td>
+      <td>Email de suivi avec étude de cas</td>
+    </tr>
+    <tr>
+      <td>Réponse</td>
+      <td>IA qualifie → création Calendly si "chaud"</td>
+    </tr>
+  </table>
+  <div class="highlight">
+    🚨 <strong>Attention</strong> : Ajoute des délais aléatoires entre envois pour éviter les spams.<br>
+    ✅ <strong>Conseil</strong> : Limite à 50 emails/jour par domaine (ex: @gmail.com).
+  </div>
+
+  <h2>Workflow 4 : Qualification Automatique de Leads (n8n)</h2>
+  <h3>Objectif</h3>
+  <p>Ne plus perdre un lead chaud. Toutes les réponses sont analysées en temps réel.</p>
+  <h3>Fonctionnement</h3>
+  <ul>
+    <li>Détection des mots-clés : "intéressé", "RDV", "envoyez info", "on en parle"</li>
+    <li>IA qualifie la réponse (chaud/froid/neutre)</li>
+    <li>Mise à jour automatique dans Airtable/HubSpot</li>
+    <li>Alerte Slack pour les leads chauds</li>
+  </ul>
+  <h3>Bénéfices</h3>
+  <ul>
+    <li>100% des réponses traitées en < 1h</li>
+    <li>Fin des oublis</li>
+    <li>Focus sur les leads prêts à acheter</li>
+  </ul>
+
+  <h2>Workflow 5 : Intégration CRM Automatique (Make + HubSpot)</h2>
+  <h3>Objectif</h3>
+  <p>Centraliser tous les leads, éviter les doublons, garder le pipeline propre.</p>
+  <h3>Workflow</h3>
+  <ol>
+    <li>Nouveau lead dans Google Sheets → Création contact HubSpot</li>
+    <li>Si "Chaud" → ajout à la liste "À contacter"</li>
+    <li>Si RDV pris → mise à jour du deal</li>
+    <li>Si pas de réponse → archivage après J14</li>
+  </ol>
+  <p><strong>Résultat</strong> : Votre CRM est toujours à jour, sans effort.</p>
+
+  <h2>Conclusion</h2>
+  <p>Ces workflows ont permis à mes clients de :</p>
+  <ul>
+    <li>Multiplier leurs leads par 5 en 30 jours</li>
+    <li>Économiser 20h/semaine de travail manuel</li>
+    <li>Multiplier leur taux de réponse par 3</li>
+  </ul>
+  <p>Vous pouvez les importer dès aujourd’hui.</p>
+  <p>Mais si vous voulez qu’on le fasse pour vous ?</p>
+  <a href="https://calendly.com/jimmygay13180-w8si/audit-gratuit-de-funnel" class="cta">👉 Tu veux que je te montre comment faire ces workflows ? Réserve ton appel avec nos experts</a>
+  <p class="post-cta">Durée : 15 min. Aucun engagement. Juste des résultats.</p>
+
+  <div class="footer">
+    © 2025 Nana Intelligence. Tous droits réservés.<br>
+    Jimmy Gay – Growth Engineer<br>
+    jimmygay13180@gmail.com | +33 7 69 49 65 79
+  </div>
+
+</body>
+</html>
