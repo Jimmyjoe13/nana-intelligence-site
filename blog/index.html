@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Growth & Automatisation | Nana Intelligence</title>
+  <meta name="description" content="Découvrez nos articles sur l’automatisation de la prospection, les agents IA, et le growth hacking pour startups." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .blog-list {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 5%;
+    }
+
+    .blog-list h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    .blog-list p.lead {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .post {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .post:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .post a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .post-content {
+      padding: 1.5rem;
+    }
+
+    .post h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #000;
+    }
+
+    .post .excerpt {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .post .read-more {
+      display: inline-block;
+      font-weight: 600;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    .post .read-more::after {
+      content: " →";
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 2rem 0 1rem 0;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link::before {
+      content: "← ";
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="../index.html">Nana Intelligence</a></div>
+      <a href="../index.html#demo" class="cta">Voir la démo →</a>
+    </nav>
+  </header>
+
+  <main class="blog-list">
+    <a href="../index.html" class="back-link">Retour à l'accueil</a>
+    
+    <h1>Blog Growth & Automatisation</h1>
+    <p class="lead">Des stratégies concrètes pour automatiser votre prospection, générer plus de leads, et scaler sans embaucher.</p>
+
+    <div class="posts">
+      <!-- Article 1 -->
+      <article class="post">
+        <a href="agent-ia-prospection.html">
+          <div class="post-content">
+            <h2>Agent IA Prospection : Générez 10x Plus de Leads Sans Lever le Petit Doigt</h2>
+            <p class="excerpt">Comment un agent IA peut automatiser 100% de votre funnel de prospection avec n8n, Make et une IA générative.</p>
+            <span class="read-more">Lire l'article</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="post">
+        <a href="automatiser-prospection-n8n.html">
+          <div class="post-content">
+            <h2>Automatiser sa Prospection avec n8n : Le Guide Ultime pour les Startups</h2>
+            <p class="excerpt">Workflow complet, pièges à éviter, et résultats réels avec n8n pour automatiser votre croissance B2B.</p>
+            <span class="read-more">Lire l'article</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="post">
+        <a href="workflow-ia-cold-email.html">
+          <div class="post-content">
+            <h2>Workflow IA pour Cold Email : Envoyer 1 000 Emails Hyper-Personnalisés Sans Effort</h2>
+            <p class="excerpt">Comment j’ai généré 87 RDV en 30 jours avec un workflow Make + IA qui personnalise chaque message.</p>
+            <span class="read-more">Lire l'article</span>
+          </div>
+        </a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Nana Intelligence. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
