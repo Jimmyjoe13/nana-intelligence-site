@@ -8,25 +8,27 @@ const path = require('path');
 const API_URL = 'https://api.mistral.ai/v1/chat/completions';
 const API_KEY = process.env.MISTRAL_API_KEY; // ✅ Clé fournie
 
-// 📝 Prompt maître - Accroche homepage (optimisé conversion + SEO)
-const PROMPT = `
-Tu es un expert en growth hacking et automatisation IA, spécialisé dans la création d'agents IA autonomes pour les startups tech.
-Rédige une accroche de page d'accueil (80-120 mots) optimisée SEO pour le mot-clé principal : "agent IA prospection".
-Objectif : convertir le visiteur en cliquant sur "Voir la démo".
-Tonalité : direct, percutant, orienté résultat. Phrases courtes. Style vendeur mais crédible.
+// 📝 Prompt maître - Article de blog (optimisé conversion + SEO)
+const BLOG_PROMPT = `
+Tu es un expert en growth hacking et automatisation IA.
+Rédige un article de blog de 600-800 mots, optimisé SEO, pour le mot-clé : "automatisation prospection startup".
 Structure :
-1. Accroche forte avec douleur concrète
-2. Solution technique (n8n, Make, gpt-oss)
-3. Résultat attendu (ex: +100 leads/mois, -20h de travail)
-4. CTA clair : "Voir la démo →"
-Ne pas utiliser de métaphores vides ou de phrases du type "notre mission est...".
+- Titre accrocheur
+- Introduction avec douleur concrète
+- Problème : pourquoi la prospection manuelle échoue
+- Solution : comment un agent IA (n8n + Make + gpt-oss) peut automatiser tout le funnel
+- Étapes de mise en place (workflow simple)
+- Résultats attendus (leads, temps gagné, taux de réponse)
+- Conclusion + CTA : "Voir la démo d’un agent IA en action"
+Tonalité : direct, technique mais accessible. Phrases courtes. Style vendeur.
+Ne pas utiliser de "notre mission", "nous sommes", "dans cet article".
 `;
 
 // 🚀 Paramètres d'inférence
 const payload = {
   model: 'mistral-large-latest',
-  messages: [{ role: 'user', content: PROMPT }],
-  max_tokens: 200,
+  messages: [{ role: 'user', content: BLOG_PROMPT }],
+  max_tokens: 2000,
   temperature: 0.7,
   top_p: 0.9,
   stop: ["Structure :", "Prompt :", "Utilisateur :"],
@@ -57,7 +59,7 @@ async function generateContent() {
     }
 
     // 📥 Sauvegarde dans /generated
-    const outputPath = path.join(__dirname, '..', 'generated', 'hero-section.txt');
+    const outputPath = path.join(__dirname, '..', 'generated', 'blog-1-automatisation-prospection-startup.txt');
     fs.writeFileSync(outputPath, cleaned, 'utf-8');
 
     console.log('✅ Succès : contenu généré et sauvegardé dans /generated/hero-section.txt');
