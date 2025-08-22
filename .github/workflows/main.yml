@@ -1,6 +1,9 @@
-name: Publier sur LinkedIn
+name: Publier sur LinkedIn via n8n
+
 on:
   push:
+    branches:
+      - main
     paths:
       - 'blog/*.html'
 
@@ -8,12 +11,24 @@ jobs:
   post-linkedin:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract filename
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Extract blog slugs
         id: extract
         run: |
-          echo "::set-output name=slug::$(echo ${{ github.event.commits[0].added[0] }} | grep -o 'blog/\(.*\)\.html' | sed 's/blog\/\(.*\)\.html/\1/')"
-      - name: Trigger n8n webhook
-        run: |
-          curl -X POST https://bartojoe13.app.n8n.cloud/webhook/96bb8033-5aba-4b1e-8636-557287f3d042 \
-            -H "Content-Type: application/json" \
-            -d '{"slug": "${{ steps.extract.outputs.slug }}"}'
+          # Trouve tous les fichiers .html ajoutés dans /blog
+          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^blog/.*\.html$' | while read file; do
+            slug=$(echo "$file" | sed 's/^blog\///' | sed 's/\.html$//')
+            echo "slug=$slug" >> $GITHUB_OUTPUT
+            # Déclenche un webhook par article
+            curl -X POST ${{ secrets.N8N_WEBHOOK_URL }} \
+              -H "Content-Type: application/json" \
+              -d "{\"slug\": \"$slug\"}"
+            echo "✅ Webhook envoyé pour $slug"
+          done
+
+        # Si aucun fichier trouvé
+        if [ -z "$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^blog/.*\.html$')" ]; then
+          echo "Aucun article détecté."
+        fi
