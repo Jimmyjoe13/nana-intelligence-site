@@ -11,20 +11,38 @@ jobs:
   post-linkedin:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: 🛠️ Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Pour pouvoir comparer les commits
 
-      - name: Extract blog slugs
-        id: extract
+      - name: 🔍 Trouver les nouveaux articles dans /blog
+        id: find-articles
         run: |
-          # Trouve tous les fichiers .html ajoutés dans /blog
-          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^blog/.*\.html$' | while read file; do
-            slug=$(echo "$file" | sed 's/^blog\///' | sed 's/\.html$//')
-            echo "slug=$slug" >> $GITHUB_OUTPUT
-            # Déclenche un webhook par article
-            curl -X POST https://bartojoe13.app.n8n.cloud/webhook/96bb8033-5aba-4b1e-8636-557287f3d042 \
+          # Lister tous les fichiers .html ajoutés dans /blog
+          NEW_ARTICLES=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep '^blog/.*\.html$' || echo "")
+          
+          if [ -z "$NEW_ARTICLES" ]; then
+            echo "❌ Aucun nouvel article détecté."
+            exit 1
+          fi
+
+          echo "✅ Articles détectés :"
+          echo "$NEW_ARTICLES"
+
+          # Extraire les slugs et envoyer un webhook par article
+          echo "$NEW_ARTICLES" | while read file; do
+            slug=$(echo "$file" | sed -E 's/^blog\/(.*)\.html$/\1/')
+            echo "🚀 Envoi du webhook pour : $slug"
+            
+            # Envoi du JSON avec le slug
+            curl -X POST ${{ secrets.N8N_WEBHOOK_URL }} \
               -H "Content-Type: application/json" \
-              -d "{\"slug\": \"$slug\"}"
-            echo "✅ Webhook envoyé pour $slug"
+              -d "{\"slug\": \"$slug\"}" \
+              --fail  # Pour que l'erreur soit détectée
+            sleep 2  # Évite les appels trop rapides
           done
 
+          # Marquer que des articles ont été trouvés
+          echo "articles_found=true" >> $GITHUB_OUTPUT
+        continue-on-error: false
